@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Sitesi</title>
+<link rel="stylesheet" href="CSS dosyası/style.css">
+
+<link rel="shortcut icon" href="resim/resim1.png"/>
+<!-- poppins yazı fontu ailesini ekledik-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!--Scrollbar script kodu-->
+<script>
+    let scrollPercentage = () => {
+        let scrollProgress = document.getElementById("progress");
+        let progressValue = document.getElementById("progress-value");
+        let pos = document.documentElement.scrollTop;
+        let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrollValue = Math.round( pos * 100 / calcHeight);
+        scrollProgress.style.background = `conic-gradient(#e2d30c ${scrollValue}%, #2b2f38 ${scrollValue}%)`;
+        progressValue.textcontent = `${scrollValue}%`;
+
+    }
+    window.onscroll = scrollPercentage;
+    window.onload = scrollPercentage;
+</script>
+
+
+
+</head>
+<body>
+ 
+ <!--==Page-Scroll-progress-bar==============-->
+ <div id="progress">
+    <span id="progress-value"></span>
+</div>
+
+
+
+
+ <nav class="navigation">
+     <a href="blog.html" class="logo"> Yazılım 101</a>
+      
+     <!--menu buton--->
+     <input type="checkbox" class="menu-btn" id="menu-btn">
+     <label for="menu-btn" class="menu-icon">
+         <span class="nav-icon"></span>
+     </label>
+
+     <ul class="menu">
+         <li><a href="blog.html">ANA SAYFA</a> </li>
+         <li><a href="#">HAKKIMDA</a> </li>
+         <li><a href="#">BLOG</a> </li>
+         <li><a href="mailto:Aysenurerdogan13@gmail.com " class="nav-contact">İLETİŞİM</a> </li>
+     </ul>
+ </nav>
+
+
+
+
+<br><br>
+<div class="page-container">
+    <div class="top-bar">
+        <span><strong> Ayşenur Erdoğan </strong></span>
+        <div align="right" ><span> <strong> İlerlemenin sırrı başlamaktır.</strong><br> Mark Twain</span></div>
+        
+    </div>
+    <section id="blog">
+        <div class="blog-baslık2" >
+           CSS NEDİR?
+        </div>
+    </section>
+   
+    <p class="paragraf"> 
+        Herkese tekrardan merhaba. Bugünkü yazımızda css konusuna kısaca bir giriş yapacağız.Gelin  birlikte bakalım CSS'in ne demek olduğuna 🙂
+    </p>
+    <br>
+    <div><img width="550" height="350" src="images/css2.jpg" alt="css nedir?"></div>
+    <br>
+    <p class="paragraf">
+        Açılımı “Cascading Style Sheets” , Türkçe karşılığı "Basamaklı Biçim Sayfaları" ya da "Basamaklı Stil Şablonları" olan bir markup dilidir. CSS en basit şekliyle HTML etiketlerimizi görsel açıdan (boyut, renk , font vs.) geliştirmemizi sağlar. Adından da anlaşılacağı gibi basamaklı yapısından alır. 
+    
+    </p>
+    <br>
+    <h4 class="kucukbaslıklar">CSS'in Kaç Stil Sayfa Türü Vardır?</h4>
+    <p class="paragraf"><br>
+        1 - Internal (İç)
+        <br> CSS kodlarımızı sayfanın üst kısmına style etiketi içine yazdığımız biçimidir.
+        <br>
+        <br>  2 - External (Dış)
+        <br>CSS kodlarımız için .css uzantılı bir doküman açıp buraya yazdığımız daha sonra da bu dokümanı link etiketi ile HTML içerisine çağırdığımız yazım biçimidir.
+        <br>
+        <br> 3 - İn-line (Satır İçi)
+        <br> CSS kodlarımızı HTML yapımızın içine in-line bir şekilde yazdığımız biçimdir.
+        <br>
+    </p>
+    <br>
+    <h4 class="kucukbaslıklar">CSS'in Bize Sağladığı Faydalar Nelerdir? </h4>
+    <br>
+    <p class="paragraf">
+        Farklı tarayıcılar ve farklı boyutta ki cihazlar için (Tablet , Mobil vs) özel olarak değişiklik yapma imkanı sunar. Böylelikle siteniz her boyut için uyumluluk gösterir.
+
+        Yazacağınız CSS kodlarını tek bir dosyada tutarak düzenliliği sağlayabilirsiniz. Bu sayede hem yapım aşamasında hem de sonraki zamanlarda bir kodu veya kod satırını bulmak çok daha kolay olur.
+
+        Sitemize renk, düzen ve esneklik katarak daha fazla kullanıcının ilgilisini çekmemizi sağlar.
+
+        Bir etikete(Örneğin sayfada ki bütün p etiketine) teker teker stil vermek yerine CSS ile tek bir etiket açarak bütün p etiketlerine stil verebiliriz.
+
+        Kısacası CSS ile zamandan tasarruf edip, sitemizi gerek tasarım yönünden gerek esneklik yönünden çok üst noktalara taşıyabiliriz.
+    </p>
+    <br>
+    <h4 class="kucukbaslıklar">CSS'in Kaç Stil Sayfa Türü Vardır? </h4>
+    <br>
+    <p class="paragraf">
+        Eğer çalışmamızı bir insana benzetecek olursak HTML bu insanın iskeleti, CSS dış görünüşü olur. Yani sitemizin ana iskeletini HTML ile oluştururken yazı renkleri, arkaplan  renkleri gibi görünüş stillerini CSS ile veririz. Bi' nevi CSS sitenin görünümünü özelleştirmek için kullanılır.  HTML ve CSS arasındaki ilişki temel olarak bu esasa dayanır.    
+        <br>
+
+    </p>
+    <br>
+    <p class="paragraf">
+    Sonuç olarak;
+    <br> CSS ile sitemizin dış görünüşünü güzelleştirebilir, bunu yaparken zamandan da tasarruf edebiliriz. Bilgisayar ekranları gibi büyük ekranlar için tasarladığımız sitemizi küçük ekranlara da uyarlayabilir daha çok kulanıcının dikkatini çekebiliriz. Bir sonraki yazımızda görüşmek üzere sağlıcakla kalın 🙂
+    </p>
+
+</div>
+<br>
+<footer>
+    <div class="footer-container">
+
+        <!--heading----->
+        
+
+        <div class="footer-content">
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>Keşfet</strong>
+                <ul>
+                    <li><a href="blog.html">Ana Sayfa</a></li>
+                    <li><a href="hakkımda.html">Hakkımda</a></li>
+                    
+                   
+                </ul>
+            </div>
+
+            <!--box------->
+            <div class="footer-box">
+                <strong>Sosyal Medya</strong>
+                <ul>
+                    <li><a href="http://instagram.com/aysenurerdogan13?ref=badge">Instagram</a></li>
+                   
+                    <li><a href="https://www.linkedin.com/in/ay%C5%9Fenur-erdo%C4%9Fan-36310a208/">Linkedin</a></li>
+                </ul>
+            </div>
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>İletişim</strong>
+                <ul>
+                    <li><a href="mailto:Aysenurerdogan13@gmail.com ">Aysenurerdogan13@gmail.com</a></li>
+                    <li><a>+5340562265</a></li>
+                </ul>
+            </div>
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>Konum</strong>
+                <ul>
+                    
+                    <li> Ankara / TÜRKİYE</li>
+                    
+                </ul>
+            </div>
+
+        </div>
+
+
+        <!--footer-bottom------------->
+        <div class="footer-bottom">
+
+            <!--links----->
+            <div class="footer-bottom-link">
+                <a>Gizlilik</a>
+                <a >Site Bilgisi</a>
+                <a>Koşullar</a>
+            </div>
+
+            <!--copyright-->
+            <div class="copyright">
+                <span>Tüm Hakları Saklıdır </span>
+                <span>© 2022 Ayşenur Erdoğan</span>
+            </div>
+
+        </div>
+
+    </div>
+</footer>
+
+    

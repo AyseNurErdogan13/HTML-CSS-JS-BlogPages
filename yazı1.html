@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Sitesi</title>
+<link rel="stylesheet" href="CSS dosyası/style.css">
+
+<link rel="shortcut icon" href="resim/resim1.png"/>
+<!-- poppins yazı fontu ailesini ekledik-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!--Scrollbar script kodu-->
+<script>
+    let scrollPercentage = () => {
+        let scrollProgress = document.getElementById("progress");
+        let progressValue = document.getElementById("progress-value");
+        let pos = document.documentElement.scrollTop;
+        let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrollValue = Math.round( pos * 100 / calcHeight);
+        scrollProgress.style.background = `conic-gradient(#e2d30c ${scrollValue}%, #2b2f38 ${scrollValue}%)`;
+        progressValue.textcontent = `${scrollValue}%`;
+
+    }
+    window.onscroll = scrollPercentage;
+    window.onload = scrollPercentage;
+</script>
+
+
+
+</head>
+<body>
+ 
+ <!--==Page-Scroll-progress-bar==============-->
+ <div id="progress">
+    <span id="progress-value"></span>
+</div>
+
+
+
+
+ <nav class="navigation">
+     <a href="blog.html" class="logo"> Yazılım 101</a>
+      
+     <!--menu buton--->
+     <input type="checkbox" class="menu-btn" id="menu-btn">
+     <label for="menu-btn" class="menu-icon">
+         <span class="nav-icon"></span>
+     </label>
+
+     <ul class="menu">
+         <li><a href="blog.html">ANA SAYFA</a> </li>
+         <li><a href="#">HAKKIMDA</a> </li>
+         <li><a href="#">BLOG</a> </li>
+         <li><a href="mailto:Aysenurerdogan13@gmail.com " class="nav-contact">İLETİŞİM</a> </li>
+     </ul>
+ </nav>
+
+
+
+
+<br><br>
+<div class="page-container">
+    <div class="top-bar">
+        <span><strong> Ayşenur Erdoğan </strong></span>
+        <div align="right" ><span> <strong> İlerlemenin sırrı başlamaktır.</strong><br> Mark Twain</span></div>
+        
+    </div>
+    <section id="blog">
+        <div class="blog-heading">
+            <h3>HTML NEDİR? </h3>
+        </div></section>
+        <div class="paragraf ">
+         <p>HTML Nedir? Web Programcılığında yeri nerededir? Gibi konu başlıklarında bugün bu sorunun cevabını arıyoruz. Hadi gelin başlayalım 🙂 HTML Nedir?
+            HTML için genel bir tabir kullanırsak web sitelerinin iskeletidir. Web sayfalarını oluşturma aşamasında kullanılan standart bir metin işaret dilidir. HTML’in açılımı “Hyper Text Markup Language” şeklindedir. HTML; tek başına bir programlama dili değildir.
+            Sayfalarımızın web ortamında görüntülenmesini sağlayan (HTTP) protokole bağlı çalışır. Çünkü programlarımızın çıktıları, HTML ile web sayfalarına dönüştürülerek tarayıcılarda görüntülenir. Sadece HTML bilgisi ile işlevleri sınırlı web siteleri hazırlamak mümkündür.
+            Web Programcılığına başlangıç olarak mutlaka HTML’i öğrenmemiz gerekir.
+            Birçok yerde duyduğunuz bu web sitelerinin iskeleti kavramını açalım.</p>
+            <br>
+            <p> <h4 class="kucukbaslıklar"> Nedir Bu İskelet?</h4>
+                Bildiğiniz üzere insan vücudu belirli bölümlerden oluşuyor. Bunları katman gibi düşünürsek öncelikle iskeletimiz ardından da derimiz geliyor. Burada derimizin üstünde bulunan örneğin saçımız bizi diğer insanlardan ayırt eden özelliklerden biridir. Kıvırcık olması, kırmızı renkli olması, uzun olması gibi sadece saçımız için bile birçok özellik sayabiliyoruz. Yazımızın bu kısmında iskeletimizle ilgileneceğiz, ardından kendimizi CSS ile güzelleştirebiliriz. Hadi şimdi de iskeletimizi bölümlere ayıralım.
+            </p> <br/> 
+               <p>  <h4 class="kucukbaslıklar">HTML Bölümleri </h4>
+                Altta bulunan bu iskeleti çok basit şekilde 3 bölüme ayırsak hangilerini seçerdiniz? </p>
+                <br>
+                <div> <img width="500" height="500" src="images/iskelet.jpeg" alt="HTMl iskelet"></div>
+                <p> Cevabınız Kafa, gövde ve ayaklar ise tebrikler 🙂 Az önce tam olarak HTML dilini geliştirenler gibi düşündünüz. Kafa, gövde ve ayaklardan oluşur.
+                    <br/>-Head 
+                    <br>-Body
+                     <br> -Footer (Footer (ayak) bölümü Body taglerinin arasında yer alıyor.)</p>
+                   <p>Son olarak HTML ile ilgili şöyle ufak bir hakkında tablosu yapmadan konuyu bitirmeyelim.
+                     <br/></p>
+                  <p><br> <h4 class="kucukbaslıklar" > HTML Özellikleri</h4> 
+                   <br/>-HTML, Hyper Text Mark-up Language(Hiper Metin İşaretleme Dili)’ın kısaltılmışıdır.
+                   <br/> -Sadece IDE kullanarak değil metin belgesi uygulamasıyla bile HTML dosyası oluşturulabilir.
+                   <br/>-HTML tarayıcılar (örneğin Chrome) tarafından tanınıp yorumlanabilen metin tabanlı bir dildir.
+                   <br/>-Yazdığınız kodların browser tarafından alınıp yorumlanabilmesi için, dosyalarınızın uzantısının “.htm” veya “.html” olması gerekir.
+                   <br/>-HTML dokümanları metin ve etiketlerden meydana gelir. HTML etiketleri açılı parantez içerisinde (< >) yazılır.
+                   <br/>-HTML’deki etiketlerin çoğu slash (/) karakteri ile biten etiket ile kapatılarak bloklar halinde kullanılır.
+                   <br/>
+                   </p>
+                   <br>
+                    <p>HTML’in genel olarak yapısı, özellikleri, ne işe yaradığı gibi konuların üzerinde durduktan sonra burada bırakmak istiyorum. Eğer bu yazıdaki temeli anladıysanız bundan sonrası çorap söküğü gibi gelecek emin olun.
+                        Eğer takıldığınız yer olursa bana ulaşabilirsiniz. Tekrar görüşmek üzere sağlıklı günler dilerim. 🙂</p>  
+
+
+        </div> </div>
+        <br>
+        <!--footer-->
+<footer>
+    <div class="footer-container">
+
+        <!--heading----->
+        
+
+        <div class="footer-content">
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>Keşfet</strong>
+                <ul>
+                    <li><a href="blog.html">Ana Sayfa</a></li>
+                    <li><a href="hakkımda.html">Hakkımda</a></li>
+                    
+                   
+                </ul>
+            </div>
+
+            <!--box------->
+            <div class="footer-box">
+                <strong>Sosyal Medya</strong>
+                <ul>
+                    <li><a href="http://instagram.com/aysenurerdogan13?ref=badge">Instagram</a></li>
+                    
+                    <li><a href="https://www.linkedin.com/in/ay%C5%9Fenur-erdo%C4%9Fan-36310a208/">Linkedin</a></li>
+                </ul>
+            </div>
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>İletişim</strong>
+                <ul>
+                    <li><a href="mailto:Aysenurerdogan13@gmail.com ">Aysenurerdogan13@gmail.com</a></li>
+                    <li><a>+5340562265</a></li>
+                </ul>
+            </div>
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>Konum</strong>
+                <ul>
+                    
+                    <li> Ankara / TÜRKİYE</li>
+                    
+                </ul>
+            </div>
+
+        </div>
+
+
+        <!--footer-bottom------------->
+        <div class="footer-bottom">
+
+            <!--links----->
+            <div class="footer-bottom-link">
+                <a >Gizlilik</a>
+                <a >Site Bilgisi</a>
+                <a >Koşullar</a>
+            </div>
+
+            <!--copyright-->
+            <div class="copyright">
+                <span>Tüm Hakları Saklıdır </span>
+                <span>© 2022 Ayşenur Erdoğan</span>
+            </div>
+
+        </div>
+
+    </div>
+</footer>
+
+            

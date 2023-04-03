@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Sitesi</title>
+<link rel="stylesheet" href="CSS dosyası/style.css">
+
+<link rel="shortcut icon" href="resim/resim1.png"/>
+<!-- poppins yazı fontu ailesini ekledik-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!--Scrollbar script kodu-->
+<script>
+    let scrollPercentage = () => {
+        let scrollProgress = document.getElementById("progress");
+        let progressValue = document.getElementById("progress-value");
+        let pos = document.documentElement.scrollTop;
+        let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrollValue = Math.round( pos * 100 / calcHeight);
+        scrollProgress.style.background = `conic-gradient(#e2d30c ${scrollValue}%, #2b2f38 ${scrollValue}%)`;
+        progressValue.textcontent = `${scrollValue}%`;
+
+    }
+    window.onscroll = scrollPercentage;
+    window.onload = scrollPercentage;
+</script>
+
+
+
+</head>
+<body>
+ 
+ <!--==Page-Scroll-progress-bar==============-->
+ <div id="progress">
+    <span id="progress-value"></span>
+</div>
+
+
+
+
+ <nav class="navigation">
+     <a href="blog.html" class="logo"> Yazılım 101</a>
+      
+     <!--menu buton--->
+     <input type="checkbox" class="menu-btn" id="menu-btn">
+     <label for="menu-btn" class="menu-icon">
+         <span class="nav-icon"></span>
+     </label>
+
+     <ul class="menu">
+         <li><a href="blog.html">ANA SAYFA</a> </li>
+         <li><a href="#">HAKKIMDA</a> </li>
+         <li><a href="#">BLOG</a> </li>
+         <li><a href="mailto:Aysenurerdogan13@gmail.com " class="nav-contact">İLETİŞİM</a> </li>
+     </ul>
+ </nav>
+
+
+
+
+<br><br>
+<div class="page-container">
+    <div class="top-bar">
+        <span><strong> Ayşenur Erdoğan </strong></span>
+        <div align="right" ><span> <strong> İlerlemenin sırrı başlamaktır.</strong><br> Mark Twain</span></div>
+        
+    </div>
+    <section id="blog">
+        <div class="blog-baslık2" >
+            Java EBOB-EKOK Hesaplama 
+        </div>
+    </section>
+    <p class="paragraf">
+        Herkese Merhaba! Bugün Java ile EBOB (En Büyük Ortak Bölen) ve EKOK (En Küçük Ortak Kat) hesaplamaya çalışacağız. EBOB EKOK hesaplama konusunu java ‘dan bağımsız olarak inceleyecek olursak EBOB hesaplanırsa EKOK’un da hesaplanacağını biliyoruz. Çünkü EKOK = (Sayi1*Sayi2) / EBOB şeklinde hesaplanabileceğini biliyoruz. Hadi şimdi bu formülden yararlanarak ve EBOB yapısını da inceleyerek kodlamaya başlayalım.
+    </p>
+    <br/> <p class="paragraf">
+        <h4 class="kucukbaslıklar">KISACA EBOB-EKOK</h4> 
+        <p class="paragraf">
+        <br/>Bildiğiniz üzere EBOB (En Büyük Ortak Bölen) iki sayı üzerindeki en büyük ortak böleni buluyor. Kısa bir örnek ile bakacak olursak 12 ve 36 sayılarını inceleyelim. 12 sayısı (1, 2, 3, 4, 6, 12) değerlerine tam bölünür. 36 sayısı ise (1, 2, 3, 4, 6, 12 , 18, 36) sayılarına tam bölünmektedir. Buna göre iki sayıda ortak olan bölümler (1, 2, 3, 4, 6, 12) değerleridir. Bu değerlerden en büyük olan ise 12 sayısıdır. Bu durumda bizim 12 ve 36 sayısı için en büyük ortak bölenimiz 12 değeri oluyor. Bu durumda EKOK = (Sayi1*Sayi2) / EBOB formülünden EKOK sonucumuzda 36 sonucunu elde edeceğiz.
+        Hadi şimdi bunu kodlama bölümüne geçelim.
+         </p>
+         <p class="paragraf">
+            <br/>Öncelikle bu bölümdeki kodları istediğiniz dile uyarlayabilirsiniz. Tamamen çalışma mantığına odaklanalım. Ve burada fonksiyon kullanarak bu işlemleri yapacağımızı belirtelim. Çünkü bir doğru bir kodlamada modülerlik çok önemlidir! Eğer fonksiyon mantığında eksiğiniz var ise yazılarımızı güncel olarak takip etmenizi öneririm. Hadi daha fazla uzatmadan kodlarımızı yazalım.
+             </p>
+             <br>
+             <pre class="kod-formatı">
+                public static int Ebob(int sayi1,int sayi2){
+                    int ebob =1;
+                    
+                    for(int i = 2;i<=sayi1&&i<=sayi2;i++){
+                        if(sayi1%i==0 && sayi2%i==0){
+                            ebob=i;
+                        } 
+                     }
+                    return ebob;
+                   
+                 }
+              
+                 public static int Ekok(int sayi1,int sayi2,int ebob){
+                    int ekok = (sayi1*sayi2)/ebob;
+                    return ekok;
+                 }
+
+
+             </pre>  
+             <p class="paragraf">
+                Burada EBOB isimli bir fonksiyon tanımladık. Bu fonksiyonumuz içine (sayi1, sayi2) değişkenlerini alıp integer bir değer döndürecek. Gönderilen iki sayının EBOB değeri en az 1 olacaktır. Bunun sebebi ise gönderilen sayılar asal sayı olsa bile tüm sayılarda 1’e tam bölünecektir. Fakat biz tabii direkt 1 değerini döndürmüyoruz. Öncelikle ebob değerini değiştirebilirmiyiz bunu hesaplayacağız. Bunun için bir for açıyoruz. İkiden başlayıp i<=sayi1&&i<=sayi2 bu koşula kadar devam ediyoruz. Buradaki koşulumuza göre i değerimizi verilen sayı değişkenlerimizden küçük olan hangisiyse o değere kadar i++ yaparak birer birer arttırıyoruz. Ardından bir if koşulumuz var. Girilen iki sayı değişkenimizde aynı i değerine bölünebiliyorsa o sayı ikisinin ortak bölenidir. Burada en büyük ortak böleni elde etme şeklimizde for döngüsündeki i değerini 1 den küçük olan sayıya kadar arttırarak elde ediyoruz. Bu sayede yeni tam bölen i değeri bir önceki tam bölen i değerinden daha büyük olmuş olacak. 
+
+             </p> <br>
+             <p class="paragraf">
+                EKOK bölümü için bizi daha basit bir fonksiyon karşılıyor. Burada tek yaptığımız fonksiyonumuzun içine aldığı sayi1, sayi2 değişkenlerine ek olarak integer ebob değişkeni alıyoruz. Ve konunun başındaki formülü kullanarak girilen iki sayının EKOK değerini elde etmiş oluyoruz. Son olarak main içerisinde nasıl çalıştırdığımıza bakalım.
+             </p>
+             <br>
+             <h4 class="kucukbaslıklar">Main Bölümü</h4>
+             <br>
+             <pre class="kod-formatı">
+                public static void main(String[] args) {
+        
+                    Scanner input = new Scanner(System.in);
+                    
+                    System.out.print("İlk sayıyı giriniz: ");
+                    int sayi1 = input.nextInt();
+                    
+                    System.out.print("İkinci sayiyi giriniz: ");
+                    int sayi2 = input.nextInt();
+                    
+                    int Ebob = Ebob(sayi1, sayi2);
+                            
+                    int Ekok = Ekok(sayi1, sayi2, Ebob);
+                    
+                    System.out.println("Girdiğiniz Sayıların \n"
+                            + "En Büyük Ortak Böleni (EBOB):  "+Ebob
+                            + "\nEn Küçük Ortak Katı (EKOK): "+Ekok+"'dir");
+                }
+
+             </pre> 
+             <p class="paragraf">
+                Fonksiyonlarımızı çalıştırmamız için 2 adet sayıya ihtiyacımız var. Ve bunları kullanıcıdan alacağımız için scanner kullanıyoruz. Ardından sayi1, ve sayi2 değişkenlerinde girilen sayı değerlerini tutuyoruz. Bunları önce Ebob adıyla tuttuğumuz değerde EBOB’larını fonksiyonumuzla hesaplıyoruz. Ardından hesapladığımız ebob değerini de kullanarak ekok sonucunu da elde ediyoruz. Ve bunları çıktı olarak ekrana yazdırıyoruz. 
+              <br>
+              En başta belirttiğim gibi bu kod tamamen her dile uyarlanabilir. Temel mantığını anladıktan sonra değişecek olan tek şey syntax olacaktır. Aslında bakacak olursanız tüm yazılım dilleri konuları için bu söylediğim şey geçerlidir. Hepsinin kendine has özellikleri olsa da buradaki algoritma mantığı tüm dillerde aynı olacaktır. Umarım anlaşılmıştır takıldığınız bir yer olursa bana buradan ulaşabilirsiniz.
+            Bir sonraki yazıda görüşünceye dek herkese sağlıklı günler dilerim. ❀✿
+  </p>
+             </p>
+             <br>
+            </div>
+            
+
+             <footer>
+                <div class="footer-container">
+            
+                    <!--heading----->
+                    
+            
+                    <div class="footer-content">
+            
+                        <!--box------------->
+                        <div class="footer-box">
+                            <strong>Keşfet</strong>
+                            <ul>
+                                <li><a href="blog.html">Ana Sayfa</a></li>
+                                <li><a href="hakkımda.html">Hakkımda</a></li>
+                                
+                               
+                            </ul>
+                        </div>
+            
+                        <!--box------->
+                        <div class="footer-box">
+                            <strong>Sosyal Medya</strong>
+                            <ul>
+                                <li><a href="http://instagram.com/aysenurerdogan13?ref=badge">Instagram</a></li>
+                                
+                                <li><a href="https://www.linkedin.com/in/ay%C5%9Fenur-erdo%C4%9Fan-36310a208/">Linkedin</a></li>
+                            </ul>
+                        </div>
+            
+                        <!--box------------->
+                        <div class="footer-box">
+                            <strong>İletişim</strong>
+                            <ul>
+                                <li><a href="mailto:Aysenurerdogan13@gmail.com ">Aysenurerdogan13@gmail.com</a></li>
+                                <li><a>+5340562265</a></li>
+                            </ul>
+                        </div>
+            
+                        <!--box------------->
+                        <div class="footer-box">
+                            <strong>Konum</strong>
+                            <ul>
+                                
+                                <li> Ankara / TÜRKİYE</li>
+                                
+                            </ul>
+                        </div>
+            
+                    </div>
+            
+            
+                    <!--footer-bottom------------->
+                    <div class="footer-bottom">
+            
+                        <!--links----->
+                        <div class="footer-bottom-link">
+                            <a >Gizlilik</a>
+                            <a >Site Bilgisi</a>
+                            <a >Koşullar</a>
+                        </div>
+            
+                        <!--copyright-->
+                        <div class="copyright">
+                            <span>Tüm Hakları Saklıdır </span>
+                            <span>© 2022 Ayşenur Erdoğan</span>
+                        </div>
+            
+                    </div>
+            
+                </div>
+            </footer>

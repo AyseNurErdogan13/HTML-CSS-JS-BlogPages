@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Sitesi</title>
+<link rel="stylesheet" href="CSS dosyası/style.css">
+
+<link rel="shortcut icon" href="resim/resim1.png"/>
+<!-- poppins yazı fontu ailesini ekledik-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!--Scrollbar script kodu-->
+<script>
+    let scrollPercentage = () => {
+        let scrollProgress = document.getElementById("progress");
+        let progressValue = document.getElementById("progress-value");
+        let pos = document.documentElement.scrollTop;
+        let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrollValue = Math.round( pos * 100 / calcHeight);
+        scrollProgress.style.background = `conic-gradient(#e2d30c ${scrollValue}%, #2b2f38 ${scrollValue}%)`;
+        progressValue.textcontent = `${scrollValue}%`;
+
+    }
+    window.onscroll = scrollPercentage;
+    window.onload = scrollPercentage;
+</script>
+
+
+
+</head>
+<body>
+ 
+ <!--==Page-Scroll-progress-bar==============-->
+ <div id="progress">
+    <span id="progress-value"></span>
+</div>
+
+
+
+
+ <nav class="navigation">
+     <a href="blog.html" class="logo"> Yazılım 101</a>
+      
+     <!--menu buton--->
+     <input type="checkbox" class="menu-btn" id="menu-btn">
+     <label for="menu-btn" class="menu-icon">
+         <span class="nav-icon"></span>
+     </label>
+
+     <ul class="menu">
+         <li><a href="blog.html">ANA SAYFA</a> </li>
+         <li><a href="#">HAKKIMDA</a> </li>
+         <li><a href="#">BLOG</a> </li>
+         <li><a href="mailto:Aysenurerdogan13@gmail.com " class="nav-contact">İLETİŞİM</a> </li>
+     </ul>
+ </nav>
+
+
+
+
+<br><br>
+<div class="page-container">
+    <div class="top-bar">
+        <span><strong> Ayşenur Erdoğan </strong></span>
+        <div align="right" ><span> <strong> İlerlemenin sırrı başlamaktır.</strong><br> Mark Twain</span></div>
+        
+    </div>
+    <section id="blog">
+        <div class="blog-baslık2" >
+            C# Erişim Belirleyicileri (Access Modifiers) 
+        </div>
+    </section>
+        <div><img width="600" height="300" src="images/access modifier.PNG" alt=""></div>
+        <br>
+        <p class="paragraf"> Erişim Belirleyicisi: Program içerisinde tanımlanan metot ve özelliklere olan erişimin sınırlarını belirtmek için kullanılan kavramlar bütününe erişim belirleyicileri denir.
+            C# dilinde 5 adet erişim belirleyici vardır. Bunlar: 
+        </p>
+        <br/> <p class="paragraf">
+            <h4 class="kucukbaslıklar">1- PUBLİC</h4> 
+            <p class="paragraf">
+            <br/> -Tanımlanan sınıfın bir özelliğine ya da metoduna istenilen yerden erişime izin verilmiş olur.
+            <br/>-Public üye elemanlar genelde sınıfın dışa sunduğu ara yüzü temsil eder.
+            <br/> -Özetlemek gerekirse kullandığımız sistemde her yerden erişmek istediğimiz fonksiyon, özellik vs. için public tanımlaması yapılabilir
+             </p>
+             <br>
+             <h4 class="kucukbaslıklar">2- PRİVATE</h4> 
+            <p class="paragraf">
+            <br/> -Tanımlanan üyelere ancak tanımlandıkları scope (yaşam alanı) içindeki diğer üye elemanlar erişebilir, bu alanın dışından doğrudan erişmek mümkün değildir. (Dolaylı yollardan nasıl erişilir onuda kapsülleme (encapsulation) nedir isimli yazımda anlattım.)
+            <br/>-Erişim belirteci opsiyonel bir belirteçtir. Kullanılmaması halinde metot, class varsayılan olarak private olur.
+            <br/> -Erişim belirteci private olan elemanlar kalıtım ile aktarılamaz.
+             </p>
+             <br>
+             <h4 class="kucukbaslıklar">3- PROTECTED</h4> 
+            <p class="paragraf">
+            <br/> -Sınıf türemesi yoksa private ile aynıdır. Fakat bir sınıftan başka bir sınıf türetiliyorsa private üyeler diğer sınıfa aktarılamaz. Sadece public ve protected elemanlar aktarılırlar.
+            <br/>-Kod içindeki protected tanımlanan özelliğin bulunduğu sınıf ve ondan türetilen sınıflar tarafından erişilebildiğini gösterir.
+            
+             </p>
+             <br>
+             <h4 class="kucukbaslıklar">4- INTERNAL</h4> 
+            <p class="paragraf">
+            <br/> -Internal olarak tanımlanan öğe, bulunduğu assembly’nin (Dll veya Exe dosyası) içinde erişilebilirdir.
+            <br/>-Dll veya Exe dosyasının içerisinde erişim için kısıtlama yoktur, ama dışarıdan erişilemez. (Her hazırlanan proje farklı assembly dosyası oluşturur)
+            
+             </p>
+             <br>
+             <h4 class="kucukbaslıklar">5- PROTECTED İNTERNAL</h4> 
+            <p class="paragraf">
+            <br/> Protected internal erişim belirleyicisi, protected ve internal erişim belirleyicilerinin VEYA (OR) işlemiyle birleştirildiği halidir.
+            <br/>-Tanımlandığı classın içinde ve o classtan türetilmiş diğer classların içinde erişilebilir.
+            <br/>-Ayrıca, aynı assembly içinde olmasalar dahi, tanımlandığı classtan türetilmiş diğer classların içinde de erişilebilir.
+             </p>
+             <br> <br>
+             <p class="paragraf">
+             Bir konunun daha sonuna geldik. Konu hakkında soru ve görüşlerinizi belirtebilirsiniz. Herkese sağlıklı günler dilerim 🙂 .</p>
+             <br> <br>
+        </p>
+</div>
+<footer>
+    <div class="footer-container">
+
+        <!--heading----->
+        
+
+        <div class="footer-content">
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>Keşfet</strong>
+                <ul>
+                    <li><a href="blog.html">Ana Sayfa</a></li>
+                    <li><a href="hakkımda.html">Hakkımda</a></li>
+                    
+                   
+                </ul>
+            </div>
+
+            <!--box------->
+            <div class="footer-box">
+                <strong>Sosyal Medya</strong>
+                <ul>
+                    <li><a href="http://instagram.com/aysenurerdogan13?ref=badge">Instagram</a></li>
+                 
+                    <li><a href="https://www.linkedin.com/in/ay%C5%9Fenur-erdo%C4%9Fan-36310a208/">Linkedin</a></li>
+                </ul>
+            </div>
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>İletişim</strong>
+                <ul>
+                    <li><a href="mailto:Aysenurerdogan13@gmail.com ">Aysenurerdogan13@gmail.com</a></li>
+                    <li><a>+5340562265</a></li>
+                </ul>
+            </div>
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>Konum</strong>
+                <ul>
+                    
+                    <li> Ankara / TÜRKİYE</li>
+                    
+                </ul>
+            </div>
+
+        </div>
+
+
+        <!--footer-bottom------------->
+        <div class="footer-bottom">
+
+            <!--links----->
+            <div class="footer-bottom-link">
+                <a >Gizlilik</a>
+                <a >Site Bilgisi</a>
+                <a >Koşullar</a>
+            </div>
+
+            <!--copyright-->
+            <div class="copyright">
+                <span>Tüm Hakları Saklıdır </span>
+                <span>© 2022 Ayşenur Erdoğan</span>
+            </div>
+
+        </div>
+
+    </div>
+</footer>
+
+        
+
+       
+
+        
+       

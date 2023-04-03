@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Sitesi</title>
+<link rel="stylesheet" href="CSS dosyası/style.css">
+
+<link rel="shortcut icon" href="resim/resim1.png"/>
+<!-- poppins yazı fontu ailesini ekledik-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!--Scrollbar script kodu-->
+<script>
+    let scrollPercentage = () => {
+        let scrollProgress = document.getElementById("progress");
+        let progressValue = document.getElementById("progress-value");
+        let pos = document.documentElement.scrollTop;
+        let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrollValue = Math.round( pos * 100 / calcHeight);
+        scrollProgress.style.background = `conic-gradient(#e2d30c ${scrollValue}%, #2b2f38 ${scrollValue}%)`;
+        progressValue.textcontent = `${scrollValue}%`;
+
+    }
+    window.onscroll = scrollPercentage;
+    window.onload = scrollPercentage;
+</script>
+
+
+
+</head>
+<body>
+ 
+ <!--==Page-Scroll-progress-bar==============-->
+ <div id="progress">
+    <span id="progress-value"></span>
+</div>
+
+
+
+
+ <nav class="navigation">
+     <a href="blog.html" class="logo"> Yazılım 101</a>
+      
+     <!--menu buton--->
+     <input type="checkbox" class="menu-btn" id="menu-btn">
+     <label for="menu-btn" class="menu-icon">
+         <span class="nav-icon"></span>
+     </label>
+
+     <ul class="menu">
+         <li><a href="blog.html">ANA SAYFA</a> </li>
+         <li><a href="hakkımda.html">HAKKIMDA</a> </li>
+         <li><a href="#"> </a> </li>
+         <li><a href="mailto:Aysenurerdogan13@gmail.com " class="nav-contact">İLETİŞİM</a> </li>
+     </ul>
+ </nav>
+
+
+
+
+<br><br>
+<div class="page-container">
+    <div class="top-bar">
+        <span><strong> Ayşenur Erdoğan </strong></span>
+        <div align="right" ><span> <strong> İlerlemenin sırrı başlamaktır.</strong><br> Mark Twain</span></div>
+        
+    </div>
+    <section id="blog">
+        <div class="blog-heading">
+            <h1> Yazılım Hakkında Her şey</h1>
+        </div>
+
+        <ul class="blog-filter">
+            <li class="list blog-filter-active" data-filter="all"> TÜMÜ </li>/
+            <li class="list" data-filter="insights"> JAVA </li>/
+            <li class="list" data-filter="projects"> C# </li>/
+            <li class="list" data-filter="culture"> MATLAB </li>/
+            <li class="list" data-filter="news"> HTML/CSS </li>
+        </ul>
+
+        <div class="blog-container"> 
+         <!---kutu1-->
+            <a href="yazı1.html" class="blog-box news">
+               <div class="blog-img">
+               <img src="images/html-css.png" alt="1">
+               </div>
+               <div class="blog-text">
+                   <span class="category">HTML/CSS</span>
+                   <strong> HTML NEDİR?</strong>
+                   <span class="blog-post-time"> 5 Mayıs 2022 - 7 dk okuma süresi</span>
+               </div>
+
+
+            </a>
+              <!---kutu2-->
+            <a href="yazı2.html" class="blog-box projects">
+                <div class="blog-img">
+                <img src="images/csharp.jpg" alt="1">
+                </div>
+                <div class="blog-text">
+                    <span class="category">C#</span>
+                    <strong> C# Erişim Belirleyicileri (Access Modifiers)</strong>
+                    <span class="blog-post-time"> 9 Mayıs 2022- 10 dk okuma süresi</span>
+                </div>
+ 
+ 
+             </a>
+               <!---kutu3-->
+             <a href="yazı3.html" class="blog-box insights">
+                <div class="blog-img">
+                <img src="images/Java-Logo.png" alt="1">
+                </div>
+                <div class="blog-text">
+                    <span class="category">JAVA</span>
+                    <strong> Java EBOB EKOK Hesaplama</strong>
+                    <span class="blog-post-time"> 13 Mayıs 2022 - 12 dk okuma süresi</span>
+                </div>
+ 
+ 
+             </a>
+              <!---kutu4-->
+             <a href="yazı4.html" class="blog-box insights">
+                <div class="blog-img">
+                <img src="images/JAVA3.PNG" alt="1">
+                </div>
+                <div class="blog-text">
+                    <span class="category">JAVA</span>
+                    <strong> Java Sayı Tahmin Oyunu</strong>
+                    <span class="blog-post-time"> 16 Mayıs 2022 - 10 dk okuma süresi</span>
+                </div>
+ 
+ 
+             </a>
+              <!---kutu5-->
+             <a href="yazı5.html" class="blog-box culture">
+                <div class="blog-img">
+                <img src="images/Matlab-Logo.png" alt="1">
+                </div>
+                <div class="blog-text">
+                    <span class="category">MATLAB</span>
+                    <strong> Atomik Haritalama Tekniği</strong>
+                    <span class="blog-post-time"> 18 Mayıs 2022 - 8 dk okuma süresi</span>
+                </div>
+ 
+ 
+             </a>
+              <!---kutu6-->
+             <a href="yazı6.html" class="blog-box news">
+                <div class="blog-img">
+                <img src="images/HTMLCSS.png" alt="1">
+                </div>
+                <div class="blog-text">
+                    <span class="category">HTML/CSS</span>
+                    <strong>CSS NEDİR? </strong>
+                    <span class="blog-post-time">20 Mayıs 2022 - 5 dk okuma süresi</span>
+                </div>
+ 
+ 
+            
+            
+        </div>
+    </section>
+</div>
+<!--footer-->
+<footer>
+    <div class="footer-container">
+
+        <!--heading----->
+        <div class="footer-heading">
+
+            <h4>&nbsp; Programcılar, geleceği düşündükleri için sürekli olarak işleri gereğinden fazla karmaşıklaştırmaktadırlar. Geleceği boşverin. Bugün için programlayın.
+               
+                <br/>
+               
+            </h4>
+            <h5 align="right"> David Heinemeier Hansson. </h5>
+            
+
+        </div>
+
+        <div class="footer-content">
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>Keşfet</strong>
+                <ul>
+                    <li><a href="blog.html">Ana Sayfa</a></li>
+                    <li><a href="hakkımda.html">Hakkımda</a></li>
+                    
+                   
+                </ul>
+            </div>
+
+            <!--box------->
+            <div class="footer-box">
+                <strong>Sosyal Medya</strong>
+                <ul>
+                    <li><a href="http://instagram.com/aysenurerdogan13?ref=badge">Instagram</a></li>
+                    
+                    <li><a href="https://www.linkedin.com/in/ay%C5%9Fenur-erdo%C4%9Fan-36310a208/">Linkedin</a></li>
+                </ul>
+            </div>
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>İletişim</strong>
+                <ul>
+                    <li><a href="mailto:Aysenurerdogan13@gmail.com ">Aysenurerdogan13@gmail.com</a></li>
+                    <li><a>+5340562265</a></li>
+                </ul>
+            </div>
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>Konum</strong>
+                <ul>
+                    
+                    <li> Ankara / TÜRKİYE</li>
+                    
+                </ul>
+            </div>
+
+        </div>
+
+
+        <!--footer-bottom------------->
+        <div class="footer-bottom">
+
+            <!--links----->
+            <div class="footer-bottom-link">
+                <a >Gizlilik</a>
+                <a >Site Bilgisi</a>
+                <a >Koşullar</a>
+            </div>
+
+            <!--copyright-->
+            <div class="copyright">
+                <span>Tüm Hakları Saklıdır </span>
+                <span>© 2022 Ayşenur Erdoğan</span>
+            </div>
+
+        </div>
+
+    </div>
+</footer>
+
+            
+
+
+
+<!--- Jquery kodları-->
+<script src="js/Jquery.js"></script>
+<!--Script-->
+<script type="text/javascript">
+    
+    $(document).on('click','.blog-filter li', function(){
+        $(this).addClass('blog-filter-active').siblings().removeClass('blog-filter-active')
+    });
+
+    /*--filter------------------------*/
+    $(document).ready(function(){
+            $('.list').click(function(){
+                const value = $(this).attr('data-filter');
+                if(value == 'all'){
+                    $('.blog-box').show('1000');
+                }
+                else{
+                    $('.blog-box').not('.'+value).hide('1000');
+                    $('.blog-box').filter('.'+value).show('1000');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

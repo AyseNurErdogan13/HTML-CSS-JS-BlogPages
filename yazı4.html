@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Sitesi</title>
+<link rel="stylesheet" href="CSS dosyası/style.css">
+
+<link rel="shortcut icon" href="resim/resim1.png"/>
+<!-- poppins yazı fontu ailesini ekledik-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!--Scrollbar script kodu-->
+<script>
+    let scrollPercentage = () => {
+        let scrollProgress = document.getElementById("progress");
+        let progressValue = document.getElementById("progress-value");
+        let pos = document.documentElement.scrollTop;
+        let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrollValue = Math.round( pos * 100 / calcHeight);
+        scrollProgress.style.background = `conic-gradient(#e2d30c ${scrollValue}%, #2b2f38 ${scrollValue}%)`;
+        progressValue.textcontent = `${scrollValue}%`;
+
+    }
+    window.onscroll = scrollPercentage;
+    window.onload = scrollPercentage;
+</script>
+
+
+
+</head>
+<body>
+ 
+ <!--==Page-Scroll-progress-bar==============-->
+ <div id="progress">
+    <span id="progress-value"></span>
+</div>
+
+
+
+
+ <nav class="navigation">
+     <a href="blog.html" class="logo"> Yazılım 101</a>
+      
+     <!--menu buton--->
+     <input type="checkbox" class="menu-btn" id="menu-btn">
+     <label for="menu-btn" class="menu-icon">
+         <span class="nav-icon"></span>
+     </label>
+
+     <ul class="menu">
+         <li><a href="blog.html">ANA SAYFA</a> </li>
+         <li><a href="#">HAKKIMDA</a> </li>
+         <li><a href="#">BLOG</a> </li>
+         <li><a href="mailto:Aysenurerdogan13@gmail.com " class="nav-contact">İLETİŞİM</a> </li>
+     </ul>
+ </nav>
+
+
+
+
+<br><br>
+<div class="page-container">
+    <div class="top-bar">
+        <span><strong> Ayşenur Erdoğan </strong></span>
+        <div align="right" ><span> <strong> İlerlemenin sırrı başlamaktır.</strong><br> Mark Twain</span></div>
+        
+    </div>
+    <section id="blog">
+        <div class="blog-baslık2" >
+            Java Sayı Tahmin Oyunu 
+        </div>
+    </section>
+    <p class="paragraf">
+        Merhaba, bugün Java dilinde Sayı Tahmin Oyunu yapacağız. Bu oyun için daha Java ile programlamaya yeni başlayan düzeyde kodlama yapacağız. Hatta programlamaya yeni başlayanların anlamakta sıkıntı çekmeyeceği konular üzerinden işleyeceğiz. Java Sayı Tahmin Oyunu için isterlerimi önceden sıralıyorum ki belki kodları incelemeden önce denemek isteyenler olabilir. Ve başlamadan son olarak kullanacaklarımı belirtiyim. Bu uygulamayı Console Application olarak yani Konsolda oynayabileceğiz. İlerleyen zamanlarda Java’da bulunan güçlü kütüphaneleri kullanarak kullanışlı arayüzü bulunan oyunlar tasarlayabiliriz. Kodlama kısmında isinde if else yapısı, while döngüsü kullanacağız. Ekstra olarak Random sınıfını kullanacağız. Bu sınıfı da oyunumuzu tekdüzelikten çıkarmak için şart. Daha fazla uzatmadan hadi başlayalım. 🙂
+        <br>
+        <br/>-Anlaşılır bir menü tasarlanılsın.
+        <br/>-Kod bloklarına dikkat edilsin.
+        <br/>-Kullanıcıya 3 adet zorluk seviyesi verilsin ve bunlar
+        <br/>*[0-10] Kolay
+        <br/>*[0-100] Orta
+        <br/>*[0-1000] Zor
+        <br/>-Kullanıcının Kolay ve Orta zorluk seviyesinde 3, Zor seviyesinde 5 adet tahmin hakkı olsun.
+        <br/>-Kullanıcı yapmış olduğu tahmin, bulması gereken sayıdan küçük veya büyükse bununla ilgili bilgi verilsin.
+        <br/>-Kullanıcının yaptığı her yanlış tahminin ardından kalan tahmin hakkı ekrana çıktı verilsin.
+        <br/>-Eğer kullanıcının hakkı biterse bulması gereken sayıyı en son ekranda gösterilsin.
+        <br/><br/>
+        Bu şekilde isterleri arttırabiliriz ama şimdilik yeterli hadi şimdi kodlama kısmına geçelim.  
+    </p>
+    <br>
+    <h4 class="kucukbaslıklar">Java Sayı Tahmin Oyunu Kodları</h4>
+    <br>
+    <pre class="kod-formatı">
+       "  import java.util.Random;
+        import java.util.Scanner;
+        public class SayiTahminOyunu{
+            public static void main(String[] args) {
+                Random rnd = new Random();  // random sınıfını bu şekilde oluşturuyoruz.
+                Scanner input = new Scanner(System.in);   // Scanner sınıfını kullanarak kullanıcıdan konsol ekranına yazdıklarını alırız
+                System.out.println("Erhan Baran-Yazılım101");
+                System.out.println("Tahmin oyunumuza hoşgeldiniz..^\n"        //istenilen menü tasarımı örneği 
+                        + "Toplam 3 tahmin hakkınız vardır\n"
+                        + "---Oyun seviyeleri---\n"
+                        + "[1]Kolay(0-10)\n"               
+                        + "[2]Orta(0-100)\n"
+                        + "[3]Zor(0-1000)\n"
+                        + "");
+                System.out.println("Lütfen seviye seçimi yapınız");
+                int seviyeSecimi = input.nextInt();
+                int can = 3;
+                if(seviyeSecimi == 1){
+                    int tahminEdilcekSayi= rnd.nextInt(10);
+                    while(can >0){
+                        System.out.println("Bir tahmin yapınız");
+                        int kullanıcıTahmin = input.nextInt();
+                        if(kullanıcıTahmin == tahminEdilcekSayi){
+                            System.out.println("Tebrikler doğru tahmin!! <<"+tahminEdilcekSayi+">> ");
+                            break;
+                        }else if(kullanıcıTahmin>tahminEdilcekSayi){
+                            System.out.println("Tahmininiz yüksek :) ");
+                            can--;
+                            System.out.println("Kalan Hakkınız: "+can);
+                        }else{
+                            System.out.println("Tahmininiz küçük :) ");
+                            can--;
+                            System.out.println("Kalan Hakkınız: "+can); 
+                               }
+                                 }
+                    if(can==0)
+                    System.out.println("Bulmanız gereken sayı : "+ tahminEdilcekSayi);
+                }
+                else if(seviyeSecimi == 2){
+                    int tahminEdilcekSayi= (int)(Math.random()*100);
+                    while(can >0){
+                        System.out.println("Bir tahmin yapınız");
+                        int kullanıcıTahmin = input.nextInt();
+                        if(kullanıcıTahmin == tahminEdilcekSayi){
+                            System.out.println("Tebrikler doğru tahmin!! <<"+tahminEdilcekSayi+">> ");
+                            break;
+                        }else if(kullanıcıTahmin>tahminEdilcekSayi){
+                            System.out.println("Tahmininiz yüksek :) ");
+                            can--;
+                            System.out.println("Kalan Hakkınız: "+can);
+                        }else{
+                            System.out.println("Tahmininiz küçük :) ");
+                            can--;
+                            System.out.println("Kalan Hakkınız: "+can);
+                             }
+                                }
+                   if(can==0)
+                   System.out.println("bulmanız gereken sayı : "+ tahminEdilcekSayi);    
+                  }            
+                     } 
+                else if(seviyeSecimi == 3){             
+                    can = 5;
+                    System.out.println("Bir tahmin yapınız");
+                    int tahminEdilcekSayi= (int)(Math.random()*1000);
+                    while(can >0){
+                        int kullanıcıTahmin = input.nextInt();
+                        if(kullanıcıTahmin == tahminEdilcekSayi){
+                            System.out.println("Tebrikler doğru tahmin!! <<"+tahminEdilcekSayi+">> ");
+                            break;
+                        }else if(kullanıcıTahmin>tahminEdilcekSayi){
+                            System.out.println("Tahmininiz yüksek :) ");
+                            can--;
+                            System.out.println("Kalan Hakkınız: "+can);
+                        }else{
+                            System.out.println("Tahmininiz küçük :) ");
+                            can--; 
+                            System.out.println("Kalan Hakkınız: "+can);}
+                            }
+                    if(can==0)
+                    System.out.println("Bulmanız gereken sayı : "+ tahminEdilcekSayi);
+                            }
+                    if(can==0)
+                    System.out.println("Bulmanız gereken sayı : "+ tahminEdilcekSayi);
+                    }
+                else
+                System.out.println("Hatalı tuşlama yaptınız..");
+            }
+        }
+      "  
+    </pre> 
+    <br>
+    <p class="paragraf">
+        Birkaç fonksiyon yazıp onları kullanarak belki de yarı yarıya verim sağlayabiliriz. Fakat ben burada başta belirttiğim gibi programlamaya, javaya yeni başlayanların anlayabileceği düzeyde kodlamamı yaptım. Başka bir örnekte programcılığın temel kurallarından Kendini Tekrar Etme! mottosuna uygun kodlamalar yapacağız. Bu örnekte anlamadığınız, veya sormak istedikleriniz için bana ulaşabilirsiniz. Umarım herkesin işine yaramıştır. Başka bir yazıda görüşmek üzere ❀✿
+    </p>
+
+</div>
+<br>
+<footer>
+    <div class="footer-container">
+
+        <!--heading----->
+        
+
+        <div class="footer-content">
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>Keşfet</strong>
+                <ul>
+                    <li><a href="blog.html">Ana Sayfa</a></li>
+                    <li><a href="hakkımda.html">Hakkımda</a></li>
+                    
+                   
+                </ul>
+            </div>
+
+            <!--box------->
+            <div class="footer-box">
+                <strong>Sosyal Medya</strong>
+                <ul>
+                    <li><a href="http://instagram.com/aysenurerdogan13?ref=badge">Instagram</a></li>
+                   
+                    <li><a href="https://www.linkedin.com/in/ay%C5%9Fenur-erdo%C4%9Fan-36310a208/">Linkedin</a></li>
+                </ul>
+            </div>
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>İletişim</strong>
+                <ul>
+                    <li><a href="mailto:Aysenurerdogan13@gmail.com ">Aysenurerdogan13@gmail.com</a></li>
+                    <li><a>+5340562265</a></li>
+                </ul>
+            </div>
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>Konum</strong>
+                <ul>
+                    
+                    <li> Ankara / TÜRKİYE</li>
+                    
+                </ul>
+            </div>
+
+        </div>
+
+
+        <!--footer-bottom------------->
+        <div class="footer-bottom">
+
+            <!--links----->
+            <div class="footer-bottom-link">
+                <a >Gizlilik</a>
+                <a >Site Bilgisi</a>
+                <a >Koşullar</a>
+            </div>
+
+            <!--copyright-->
+            <div class="copyright">
+                <span>Tüm Hakları Saklıdır </span>
+                <span>© 2022 Ayşenur Erdoğan</span>
+            </div>
+
+        </div>
+
+    </div>
+</footer>

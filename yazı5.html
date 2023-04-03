@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Sitesi</title>
+<link rel="stylesheet" href="CSS dosyası/style.css">
+
+<link rel="shortcut icon" href="resim/resim1.png"/>
+<!-- poppins yazı fontu ailesini ekledik-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!--Scrollbar script kodu-->
+<script>
+    let scrollPercentage = () => {
+        let scrollProgress = document.getElementById("progress");
+        let progressValue = document.getElementById("progress-value");
+        let pos = document.documentElement.scrollTop;
+        let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrollValue = Math.round( pos * 100 / calcHeight);
+        scrollProgress.style.background = `conic-gradient(#e2d30c ${scrollValue}%, #2b2f38 ${scrollValue}%)`;
+        progressValue.textcontent = `${scrollValue}%`;
+
+    }
+    window.onscroll = scrollPercentage;
+    window.onload = scrollPercentage;
+</script>
+
+
+
+</head>
+<body>
+ 
+ <!--==Page-Scroll-progress-bar==============-->
+ <div id="progress">
+    <span id="progress-value"></span>
+</div>
+
+
+
+
+ <nav class="navigation">
+     <a href="blog.html" class="logo"> Yazılım 101</a>
+      
+     <!--menu buton--->
+     <input type="checkbox" class="menu-btn" id="menu-btn">
+     <label for="menu-btn" class="menu-icon">
+         <span class="nav-icon"></span>
+     </label>
+
+     <ul class="menu">
+         <li><a href="blog.html">ANA SAYFA</a> </li>
+         <li><a href="#">HAKKIMDA</a> </li>
+         <li><a href="#">BLOG</a> </li>
+         <li><a href="mailto:Aysenurerdogan13@gmail.com " class="nav-contact">İLETİŞİM</a> </li>
+     </ul>
+ </nav>
+
+
+
+
+<br><br>
+<div class="page-container">
+    <div class="top-bar">
+        <span><strong> Ayşenur Erdoğan </strong></span>
+        <div align="right" ><span> <strong> İlerlemenin sırrı başlamaktır.</strong><br> Mark Twain</span></div>
+        
+    </div>
+    <section id="blog">
+        <div class="blog-baslık2" >
+            Atomik Haritalama Tekniği
+        </div>
+    </section>
+    <p class="paragraf">
+        Bugün Sayısal Haritalama Tekniklerinin alt başlığı olan Fiziko – Kimyasal Haritalama tekniklerinden bahsedeceğiz.Bu teknikten ilki Atomik Haritalama Tekniği’dir. Gelin birlikte bu tekniğin ne olduğuna ve MATLAB kullanarak kodlarının nasıl yazıldığına bakalım.🙂
+    
+    </p>
+    <br>
+    <h4 class="kucukbaslıklar">Atomik Haritalama Tekniği</h4>
+    <br>
+    <p class="paragraf">
+        Atomik Haritalama Tekniği’nde, DNA diziliminde bulunan her bir nükleotide sırasıyla; ” Adenin =70 , Guanin =78, Sitozin (C) =58, Timin = 66 ” değerleri verilir.
+        <br>
+        Örnek verecek olursak:
+        <br>
+        Bize X(n)=[G C C A T A] şeklinde bir DNA bilgisi verilsin. Atomik Haritalama Tekniği kuralına göre Adenin, Timin, Sitozin ve Guanin için verilen değerleri yazalım. Bu DNA diziliminin sayısal temsili: X(n)=[78 58 58 70 66 70] şeklinde olacaktır. Peki bu tekniğin kuralını MATLAB kullanarak kodlarını nasıl yazacağız? Gelin birlikte anlamaya çalışalım. 
+    </p>
+    <br>
+    <pre class="kod-formatı">
+        clear all;close all;clc
+
+DNAS='GGAGCGCGTGAGGCTCCGGCGCGCAAGCCCGGAGCAGCCCGCTGGGGCGCACAGGGTCGCGCGGGCGCGGGGATGGAGGACGGCGTGGCCGGTCCCCAGCTCGGGGCCGCGGCGGAGGCGG';
+ 
+sample_dna=DNAS; 
+n=length(sample_dna);
+numdna=[];
+for i=1:n
+    if sample_dna(i)=='A' 
+       numdna(i)=70;
+      
+    end
+    if sample_dna(i)=='C' 
+       numdna(i)=58;
+       
+    end
+    if sample_dna(i)=='G' 
+       numdna(i)=78;
+     
+    end
+    if sample_dna(i)=='T' 
+      numdna(i)=66;
+      
+    end
+end 
+numdna
+    </pre>
+    <br>
+    <h4 class="kucukbaslıklar">Matlab Kodunun Açıklaması</h4>
+    <br>
+    <p class="paragraf">
+        Gelin birlikte yazdığımız kodu anlamaya çalışalım.
+Öncelikle dışarıdan bir DNA girişinin olması gerekiyor. Ancak bu giriş kullanacağımız veriye göre değişiklik gösterebilmektedir. Bizim yazdığımız örneğimizde bulunan “DNAS” girişini biz oluşturduk. Ama isterseniz siz başka DNA baz değerlerini de giriş olarak alabilirsiniz. Daha sonra DNAS ‘ı sample_dna adlı değişkenimize ve sample_dna‘ nın uzunluğunu ‘n’ değerine atadık. Sonrasında Numdna adında bir dizi tanımladık. Bir döngü başlatarak i=1’den n’e kadar dönmesini sağladık. Döngünün içinde DNAS içinde bulunan Adenin, Timin, Sitozin ve Guanin bazları için Atomik Haritalama Tekniğinde bulunan kurala göre uygun sayısal değerleri atadık. Daha sonra bu değerleri aldıkça Numdna dizisine atayarak kurallı bir sıra oluşturduk. Döngümüz bittiğinde son olarak da Numdna dizisini ekrana bastırdık ve kodumuzu bitirmiş olduk.
+<br>
+</p>
+<br>
+<p class="paragraf">Kodlarımızın açıklaması bu şekildeydi. Kendinizin de konuyu daha iyi anlayabilmeniz için kodları tekrardan yazmanızı öneriyoruz. Kodlarla veyahut da konuyla ilgili anlamadığınız bir kısım olursa bana ulaşabilirsiniz. Hepinize sağlıklı ve mutlu günler diliyorum ❤ 
+
+</p>
+</div>
+<br>
+<footer>
+    <div class="footer-container">
+
+        <!--heading----->
+        
+
+        <div class="footer-content">
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>Keşfet</strong>
+                <ul>
+                    <li><a href="blog.html">Ana Sayfa</a></li>
+                    <li><a href="hakkımda.html">Hakkımda</a></li>
+                    
+                   
+                </ul>
+            </div>
+
+            <!--box------->
+            <div class="footer-box">
+                <strong>Sosyal Medya</strong>
+                <ul>
+                    <li><a href="http://instagram.com/aysenurerdogan13?ref=badge">Instagram</a></li>
+                    
+                    <li><a href="https://www.linkedin.com/in/ay%C5%9Fenur-erdo%C4%9Fan-36310a208/">Linkedin</a></li>
+                </ul>
+            </div>
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>İletişim</strong>
+                <ul>
+                    <li><a href="mailto:Aysenurerdogan13@gmail.com ">Aysenurerdogan13@gmail.com</a></li>
+                    <li><a>+5340562265</a></li>
+                </ul>
+            </div>
+
+            <!--box------------->
+            <div class="footer-box">
+                <strong>Konum</strong>
+                <ul>
+                    
+                    <li> Ankara / TÜRKİYE</li>
+                    
+                </ul>
+            </div>
+
+        </div>
+
+
+        <!--footer-bottom------------->
+        <div class="footer-bottom">
+
+            <!--links----->
+            <div class="footer-bottom-link">
+                <a >Gizlilik</a>
+                <a >Site Bilgisi</a>
+                <a >Koşullar</a>
+            </div>
+
+            <!--copyright-->
+            <div class="copyright">
+                <span>Tüm Hakları Saklıdır </span>
+                <span>© 2022 Ayşenur Erdoğan</span>
+            </div>
+
+        </div>
+
+    </div>
+</footer>
+
+    
